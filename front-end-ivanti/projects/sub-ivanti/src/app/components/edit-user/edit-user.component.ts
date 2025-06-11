@@ -3,7 +3,7 @@ import {ReactiveFormsModule, Validators, FormsModule, FormBuilder, FormGroup} fr
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {UserService} from '../../../../../../src/app/shared/services/user.service';
-import {map} from 'rxjs';
+import {filter, map} from 'rxjs';
 import {UserInterface} from '../../../../../../src/app/shared/interfaces/user-interface';
 import {MatButton} from '@angular/material/button';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -51,6 +51,7 @@ export class EditUserComponent implements OnInit {
 
     this.userService.getUsersList({})
       .pipe(
+          filter((users: UserInterface[]) => users.length > 0),
         map(m => {
           let value: UserInterface[] = m.filter(f => f.id === +this.id());
           return value[0];

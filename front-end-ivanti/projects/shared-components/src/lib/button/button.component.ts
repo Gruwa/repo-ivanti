@@ -31,13 +31,13 @@ export class ButtonComponent {
    * If not provided, the button will not perform any action.
    * @output {EventEmitter<void>} action - The event emitter that emits when the button is clicked.
    */
-  action = output();
+  action: any = output();
 
   /**
    * Determines if the button should be disabled.
    * Defaults to false, meaning the button is enabled.
    */
-  onClick() {
-    this.action.emit();
+  onClick($event: MouseEvent): void {
+    this.action.emit($event);
   }
 }

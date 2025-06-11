@@ -64,6 +64,10 @@ export class AccordionComponent {
    * The cmethod to save route link inthe signal thta allow to navigate to the parent route.
    */
   onClick() {
-    this.userService.parentRouter.set('/' + this.router.snapshot.url[0].path + '/' + this.router.snapshot.url[1].path);
+    if (this.router.snapshot.url[1]) {
+      this.userService.parentRouter.set('/' + this.router.snapshot.url[0].path + '/' + this.router.snapshot.url[1].path)
+    } else {
+      this.userService.parentRouter.set('/' + this.router.snapshot.url[0].path);
+    }
   }
 }
