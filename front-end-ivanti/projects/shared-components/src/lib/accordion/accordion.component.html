@@ -1,0 +1,28 @@
+<!--<div class="title">{{ accordionTitle() }}</div>-->
+<mat-accordion>
+  @for (user of users(); track user.id) {
+    <mat-expansion-panel (opened)="opened(user.id)" (closed)="panelOpenState.set(false)">
+      <mat-expansion-panel-header>
+        <mat-panel-title> Name: {{ user.name }}</mat-panel-title>
+        <mat-panel-description>
+          Email: {{ user.email }}
+        </mat-panel-description>
+        <mat-panel-description>
+          Phone: {{ user.phone }}
+        </mat-panel-description>
+        <mat-panel-description>
+            @if (user.id) {
+              <lib-button [link]="`edit-user/${user.id}/edit`" (action)="onClick()" [description]="'Profile'"/>
+            }
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <ng-template matExpansionPanelContent>
+        <div class="card-container">
+          @for (card of user.messages; track card.id) {
+            <lib-card [card]="card" class="card"/>
+          }
+        </div>
+      </ng-template>
+    </mat-expansion-panel>
+  }
+</mat-accordion>
