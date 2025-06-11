@@ -1,0 +1,24 @@
+@if (router.url.indexOf('full-users-list') < 0) {
+  <mat-tab-group animationDuration="0ms"
+                 (selectedTabChange)="userService.usersListTab.set($event)"
+                 [selectedIndex]="userService.usersListTab().index">
+    <mat-tab label="Odd users">
+      <lib-accordion [users]="userService.usersListOdd()" [accordionTitle]="'List of users'" (onOpen)="getUserMessages($event)"/>
+    </mat-tab>
+    <mat-tab label="Even users">
+      <lib-accordion [users]="userService.usersListEven()" [accordionTitle]="'List of users'" (onOpen)="getUserMessages($event)"/>
+    </mat-tab>
+  </mat-tab-group>
+} @else {
+  <lib-accordion [users]="userService.usersListFull()" [accordionTitle]="'List of users'" (onOpen)="getUserMessages($event)"/>
+  <mat-paginator [length]="10000"
+                 [pageSize]="userService.pagination().pageSize"
+                 [pageSizeOptions]="[15, 30, 50, 100]"
+                 (page)="onPagination($event)"
+                 [showFirstLastButtons]="true"
+                 [hidePageSize]="false"
+                 aria-label="Select page">
+  </mat-paginator>
+}
+
+
