@@ -1,0 +1,26 @@
+.two-column-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 30px 34px ;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+
+  .button {
+    flex: auto;
+    text-align-last: right;
+    align-content: center;
+  }
+}
+
+
