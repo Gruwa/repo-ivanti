@@ -1,1 +1,1 @@
-# repo-ivanti - all information in internal readme in front-end's part
+# All information in the internal readme in front-end's part
