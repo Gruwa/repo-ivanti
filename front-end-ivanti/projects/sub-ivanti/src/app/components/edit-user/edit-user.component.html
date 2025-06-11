@@ -1,0 +1,51 @@
+<form class="example-form two-column-container" [formGroup]="userForm">
+  <div class="column">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Ex. 100 Main St" formControlName="nameFormControl">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>User Name</mat-label>
+      <input matInput formControlName="userFormControl">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="emailFormControl" placeholder="Ex. pat@example.com">
+<!--      @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {-->
+<!--        <mat-error>Please enter a valid email address</mat-error>-->
+<!--      }-->
+<!--      @if (emailFormControl.hasError('required')) {-->
+<!--        <mat-error>Email is <strong>required</strong></mat-error>-->
+<!--      }-->
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Address Street</mat-label>
+      <input matInput formControlName="streetFormControl">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Address Suite</mat-label>
+      <input matInput placeholder="Ex. 100 Main St" formControlName="suiteFormControl"/>
+    </mat-form-field>
+  </div>
+  <div class="column">
+    <mat-form-field class="example-full-width">
+      <mat-label>Address City</mat-label>
+      <input matInput placeholder="Ex. 100 Main St" formControlName="cityFormControl">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Address ZIP Code</mat-label>
+      <input matInput placeholder="Ex. 100 Main St" formControlName="zipFormControl">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Address GEO lat</mat-label>
+      <input matInput placeholder="Ex. 100 Main St" formControlName="latFormControl">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Address GEO lng</mat-label>
+      <input matInput placeholder="Ex. 100 Main St" formControlName="lngFormControl">
+    </mat-form-field>
+
+    <div class="button"><button mat-flat-button (click)="onClick()">Cancel</button></div>
+  </div>
+
+</form>
